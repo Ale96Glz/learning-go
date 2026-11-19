@@ -85,12 +85,24 @@ directo en [13 — HTTP básico](13-http-basico/).
 | 18 | [Producción](18-produccion/) | `slog`, graceful shutdown, Docker | deploy |
 | — | [**Proyecto**](proyecto/) | todo junto | API de tareas con auth y SQLite |
 
-## Qué NO incluye (a propósito)
+## Lo que queda afuera (y cuándo sumarlo)
 
-gRPC, ORMs y frameworks web (Gin/Echo/chi): todo HTTP es `net/http` puro. Tampoco
-Kubernetes, generics avanzados ni frontend. Todo eso se aprende después; meterlo acá hace
-el tutorial más largo y más frágil. En los capítulos donde aplica se explica **qué**
-usarías en el trabajo y **por qué**.
+Acá todo se hace con la librería estándar a propósito: primero ves cómo funciona cada
+pieza y después podés usar una herramienta que lo haga por vos sin que te quede oculto
+qué hace.
+
+| En vez de... | Acá usamos | Lo sumás cuando... |
+|---|---|---|
+| Gin, Echo, chi | `net/http` y `ServeMux` | necesites binding, validación o middleware de terceros |
+| GORM, sqlc | `database/sql` y SQL a mano | el esquema crezca y convenga generar código o migraciones |
+| gRPC | HTTP + JSON | haya comunicación entre servicios con contratos estrictos y baja latencia |
+| Kubernetes | Docker y `docker run` | tengas varios servicios que orquestar |
+| Generics avanzados | interfaces chicas | el mismo código se repita para tipos distintos |
+| Frontend | respuestas JSON | haya un cliente que consuma la API |
+
+No es una lista de herramientas prohibidas: es el orden en que conviene aprenderlas.
+Cuando las uses en el trabajo, vas a saber qué problema resuelven y qué cambias por esa
+comodidad.
 
 ## Convenciones
 
