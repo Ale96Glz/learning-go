@@ -11,7 +11,7 @@ Go aplicado a trabajo real: APIs, routers, base de datos, tests, configuración 
 
 ## Requisitos
 
-- Go 1.22 o superior (el tutorial usa `go 1.26`). Verifica con `go version`.
+- Go 1.26 o superior (`go.mod` declara `go 1.26.0`). Verifica con `go version`.
 - Un editor con soporte de Go (VS Code + extensión oficial, o GoLand).
 - Terminal en esta carpeta (`tutorial go`).
 
@@ -34,11 +34,33 @@ go vet ./...
 ```
 
 > En Windows, si la ruta tiene espacios funciona igual: el módulo se llama
-> `tutorialgo`, no la carpeta.
+> `tutorialgo`, no la carpeta. En PowerShell, `curl` es un alias de `Invoke-WebRequest`:
+> usá `curl.exe` para los ejemplos.
+
+## Arranca el proyecto final
+
+```bash
+go run ./proyecto
+curl.exe -i http://localhost:8080/salud
+go test ./...
+```
+
+La API queda en `http://localhost:8080`, crea `tareas.db` en la raíz y arranca sin
+configurar nada. El recorrido completo (registro → login → tareas) y las variables de
+entorno están en [proyecto/README.md](proyecto/README.md).
+
+| Síntoma | Solución |
+|---|---|
+| `go: cannot find main module` | ejecuta desde la raíz de `tutorial go` |
+| `bind: Only one usage of each socket address` | el puerto 8080 está ocupado; cambia `PORT` |
+| `no required module provides package` | corre `go mod tidy` |
 
 ---
 
 ## Índice
+
+La ruta es lineal: 00 → 18 y después el proyecto. Si ya conoces los fundamentos, entra
+directo en [13 — HTTP básico](13-http-basico/).
 
 | # | Capítulo | Qué aprendes | Aplicación real |
 |---|----------|--------------|-----------------|
@@ -65,9 +87,10 @@ go vet ./...
 
 ## Qué NO incluye (a propósito)
 
-gRPC, ORMs, frameworks web (Gin/Echo/chi en el código), Kubernetes, generics avanzados,
-frontend. Todo eso se aprende después; meterlo acá hace el tutorial más largo y más
-frágil. En los capítulos donde aplica se explica **qué** usarías en el trabajo y **por qué**.
+gRPC, ORMs y frameworks web (Gin/Echo/chi): todo HTTP es `net/http` puro. Tampoco
+Kubernetes, generics avanzados ni frontend. Todo eso se aprende después; meterlo acá hace
+el tutorial más largo y más frágil. En los capítulos donde aplica se explica **qué**
+usarías en el trabajo y **por qué**.
 
 ## Convenciones
 
