@@ -118,4 +118,46 @@ ese `%d` son **verbos de formato**: huecos que `fmt` rellena con los argumentos 
 con tabla y errores típicos, está en
 [00-empezar/verbos-formato.md](00-empezar/verbos-formato.md).
 
+## Para seguir aprendiendo
+
+Los recursos oficiales primero: cuando algo no cuadre, ellos mandan. El resto son atajos
+para practicar o para entender el *por qué* detrás de una decisión.
+
+### Documentación oficial
+
+| Recurso | Cuándo abrirlo |
+|---|---|
+| [Documentación](https://go.dev/doc/) | índice de todo lo oficial: instalación, módulos, testing, diagnóstico |
+| [A Tour of Go](https://go.dev/tour/) | recorrido interactivo de sintaxis, interfaces y concurrencia |
+| [Tutoriales](https://go.dev/doc/tutorial/) | guías paso a paso: módulos, errores, JSON, base de datos, generics, fuzzing, `govulncheck` |
+| [How to Write Go Code](https://go.dev/doc/code) | cómo organizar paquetes dentro de un módulo y usar el comando `go` |
+| [Effective Go](https://go.dev/doc/effective_go) | convenciones de estilo; aviso: es de 2009 y no cubre generics ni módulos |
+| [Code Review Comments](https://go.dev/wiki/CodeReviewComments) | el detalle de estilo que falta en *Effective Go*: errores, interfaces, nombres |
+| [pkg.go.dev](https://pkg.go.dev/) | documentación de la librería estándar y de cualquier módulo |
+| [Especificación del lenguaje](https://go.dev/ref/spec) | la definición exacta, para cuando hay duda |
+| [Go Playground](https://go.dev/play/) | probar código en el navegador sin instalar nada |
+| [Blog](https://go.dev/blog/) y [charlas grabadas](https://go.dev/talks/) | decisiones de diseño y conferencias del equipo de Go |
+| [Wiki: Learn](https://go.dev/wiki/Learn) | listado comunitario de cursos y libros |
+
+### Práctica
+
+| Recurso | Formato |
+|---|---|
+| [Go by Example](https://gobyexample.com/) | ejemplos cortos y anotados; sirve de hoja de referencia |
+| [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/) | libro gratis: se aprende Go escribiendo tests (TDD) |
+| [Exercism — track de Go](https://exercism.org/tracks/go) | 168 ejercicios con mentoría humana gratuita |
+| [Gophercises](https://gophercises.com/) | ~20 mini-proyectos en video, con foco en stdlib y concurrencia |
+| [inancgumus/learngo](https://github.com/inancgumus/learngo) | más de 1000 ejemplos, ejercicios y quizzes para corregir |
+
+### Video
+
+| Recurso | Formato |
+|---|---|
+| [Curso de Go desde cero (freeCodeCamp en español)](https://www.freecodecamp.org/espanol/news/aprende-go-curso-de-golang-desde-cero) | curso completo en español, gratis |
+| [Go Programming – Full Course (Tech With Tim)](https://www.youtube.com/watch?v=V-lI7AmusGs) | curso en inglés, de sintaxis a concurrencia |
+
+Un orden que funciona: el [Tour](https://go.dev/tour/) antes del capítulo 01, *Learn Go with
+Tests* al llegar al capítulo 10, y *Code Review Comments* + las charlas oficiales al terminar
+el [proyecto](proyecto/).
+
 Empieza por [00-empezar](00-empezar/).
