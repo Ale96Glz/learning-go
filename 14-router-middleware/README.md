@@ -327,14 +327,14 @@ go test -v ./14-router-middleware
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| 404 en `/api/v1/tareas` | el mux interno espera `/tareas` | revisá el `StripPrefix` |
-| `PathValue("id")` vacío | el patrón no captura o estás en otro mux | usá `{id}` en el patrón correcto |
-| 405 sin header `Allow` | lo armaste a mano y lo olvidaste | con patrones por método es automático |
-| el panic corta la conexión y el cliente no recibe 500 | falta `ConRecuperacion` | agregalo en la cadena |
-| el log no tiene request ID | `ConRequestID` va después de `ConLogging` | invertí el orden |
-| el handler no puede hacer streaming | el recorder no implementa `Flusher` | implementalo o no envuelvas esa ruta |
-| `superfluous WriteHeader` | escribiste status dos veces | un solo `WriteHeader` |
-| ID predecible | usaste `math/rand` | `crypto/rand` |
+| 404 en `/api/v1/tareas` | El mux interno espera `/tareas` | Revisá el `StripPrefix` |
+| `PathValue("id")` vacío | El patrón no captura o estás en otro mux | Usá `{id}` en el patrón correcto |
+| 405 sin header `Allow` | Lo armaste a mano y lo olvidaste | Con patrones por método es automático |
+| El panic corta la conexión y el cliente no recibe 500 | Falta `ConRecuperacion` | Agregalo en la cadena |
+| El log no tiene request ID | `ConRequestID` va después de `ConLogging` | Invertí el orden |
+| El handler no puede hacer streaming | El recorder no implementa `Flusher` | Implementalo o no envuelvas esa ruta |
+| `superfluous WriteHeader` | Escribiste status dos veces | Un solo `WriteHeader` |
+| ID predecible | Usaste `math/rand` | `crypto/rand` |
 
 ## Por qué importa en el trabajo
 

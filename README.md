@@ -51,9 +51,9 @@ entorno están en [proyecto/README.md](proyecto/README.md).
 
 | Síntoma | Solución |
 |---|---|
-| `go: cannot find main module` | ejecuta desde la raíz de `tutorial go` |
-| `bind: Only one usage of each socket address` | el puerto 8080 está ocupado; cambia `PORT` |
-| `no required module provides package` | corre `go mod tidy` |
+| `go: cannot find main module` | Ejecuta desde la raíz de `tutorial go` |
+| `bind: Only one usage of each socket address` | El puerto 8080 está ocupado; cambia `PORT` |
+| `no required module provides package` | Corre `go mod tidy` |
 
 ---
 
@@ -64,26 +64,26 @@ directo en [13 — HTTP básico](13-http-basico/).
 
 | # | Capítulo | Qué aprendes | Aplicación real |
 |---|----------|--------------|-----------------|
-| 00 | [Empezar](00-empezar/) | módulos, `run`, `build`, `test`, `fmt` | armar un repo Go |
+| 00 | [Empezar](00-empezar/) | Módulos, `run`, `build`, `test`, `fmt` | Armar un repo Go |
 | 01 | [Hola mundo](01-hola-mundo/) | `package`, `import`, `func main`, `os.Args` | CLI mínima |
-| 02 | [Variables y tipos](02-tipos-variables/) | tipos, zero values, constantes, conversión | leer config del entorno |
-| 03 | [Control de flujo](03-control-flujo/) | `if`, `switch`, `for`, `range` | validar entrada, reintentos |
-| 04 | [Funciones y errores](04-funciones-errores/) | múltiples retornos, `error`, wrapping | validación con errores tipados |
-| 05 | [Structs y métodos](05-structs-metodos/) | structs, punteros, constructores, tags | modelos de dominio |
-| 06 | [Interfaces](06-interfaces/) | interfaces chicas, `io.Writer`, inyección | repositorio intercambiable |
-| 07 | [Slices y maps](07-slices-maps/) | `append`, filtros, `map`, `sort` | listar y agrupar datos |
-| 08 | [Paquetes](08-paquetes/) | `internal/`, exportado vs privado | separar capas |
-| 09 | [Archivos y JSON](09-archivos-json/) | `os`, `encoding/json`, escritura atómica | persistencia simple |
-| 10 | [Testing](10-testing/) | tests de tabla, `t.Helper`, `go test -race` | tests que sirven |
-| 11 | [Concurrencia](11-concurrencia/) | goroutines, channels, `WaitGroup`, worker pool | procesar en paralelo |
-| 12 | [Context](12-context/) | timeout, cancelación, propagación | llamadas externas |
-| 13 | [HTTP básico](13-http-basico/) | server, handlers, JSON, `httptest` | API en memoria |
-| 14 | [Routers y middleware](14-router-middleware/) | params de ruta, subrouters, middlewares | API versionada |
-| 15 | [Base de datos](15-base-datos/) | `database/sql`, SQLite, transacciones, migraciones | repositorio SQL |
-| 16 | [Auth](16-auth/) | bcrypt, tokens, middleware Bearer | login real |
-| 17 | [Config por entorno](17-config-entorno/) | env vars, defaults, validación | 12-factor |
-| 18 | [Producción](18-produccion/) | `slog`, graceful shutdown, Docker | deploy |
-| — | [**Proyecto**](proyecto/) | todo junto | API de tareas con auth y SQLite |
+| 02 | [Variables y tipos](02-tipos-variables/) | Tipos, zero values, constantes, conversión | Leer config del entorno |
+| 03 | [Control de flujo](03-control-flujo/) | `if`, `switch`, `for`, `range` | Validar entrada, reintentos |
+| 04 | [Funciones y errores](04-funciones-errores/) | Múltiples retornos, `error`, wrapping | Validación con errores tipados |
+| 05 | [Structs y métodos](05-structs-metodos/) | Structs, punteros, constructores, tags | Modelos de dominio |
+| 06 | [Interfaces](06-interfaces/) | Interfaces chicas, `io.Writer`, inyección | Repositorio intercambiable |
+| 07 | [Slices y maps](07-slices-maps/) | `append`, filtros, `map`, `sort` | Listar y agrupar datos |
+| 08 | [Paquetes](08-paquetes/) | `internal/`, exportado vs privado | Separar capas |
+| 09 | [Archivos y JSON](09-archivos-json/) | `os`, `encoding/json`, escritura atómica | Persistencia simple |
+| 10 | [Testing](10-testing/) | Tests de tabla, `t.Helper`, `go test -race` | Tests que sirven |
+| 11 | [Concurrencia](11-concurrencia/) | Goroutines, channels, `WaitGroup`, worker pool | Procesar en paralelo |
+| 12 | [Context](12-context/) | Timeout, cancelación, propagación | Llamadas externas |
+| 13 | [HTTP básico](13-http-basico/) | Server, handlers, JSON, `httptest` | API en memoria |
+| 14 | [Routers y middleware](14-router-middleware/) | Params de ruta, subrouters, middlewares | API versionada |
+| 15 | [Base de datos](15-base-datos/) | `database/sql`, SQLite, transacciones, migraciones | Repositorio SQL |
+| 16 | [Auth](16-auth/) | bcrypt, tokens, middleware Bearer | Login real |
+| 17 | [Config por entorno](17-config-entorno/) | Env vars, defaults, validación | 12-factor |
+| 18 | [Producción](18-produccion/) | `slog`, graceful shutdown, Docker | Deploy |
+| — | [**Proyecto**](proyecto/) | Todo junto | API de tareas con auth y SQLite |
 
 ## Lo que queda afuera (y cuándo sumarlo)
 
@@ -93,12 +93,12 @@ qué hace.
 
 | En vez de... | Acá usamos | Lo sumás cuando... |
 |---|---|---|
-| Gin, Echo, chi | `net/http` y `ServeMux` | necesites binding, validación o middleware de terceros |
-| GORM, sqlc | `database/sql` y SQL a mano | el esquema crezca y convenga generar código o migraciones |
-| gRPC | HTTP + JSON | haya comunicación entre servicios con contratos estrictos y baja latencia |
-| Kubernetes | Docker y `docker run` | tengas varios servicios que orquestar |
-| Generics avanzados | interfaces chicas | el mismo código se repita para tipos distintos |
-| Frontend | respuestas JSON | haya un cliente que consuma la API |
+| Gin, Echo, chi | `net/http` y `ServeMux` | Necesites binding, validación o middleware de terceros |
+| GORM, sqlc | `database/sql` y SQL a mano | El esquema crezca y convenga generar código o migraciones |
+| gRPC | HTTP + JSON | Haya comunicación entre servicios con contratos estrictos y baja latencia |
+| Kubernetes | Docker y `docker run` | Tengas varios servicios que orquestar |
+| Generics avanzados | Interfaces chicas | El mismo código se repita para tipos distintos |
+| Frontend | Respuestas JSON | Haya un cliente que consuma la API |
 
 No es una lista de herramientas prohibidas: es el orden en que conviene aprenderlas.
 Cuando las uses en el trabajo, vas a saber qué problema resuelven y qué cambias por esa
@@ -127,34 +127,34 @@ para practicar o para entender el *por qué* detrás de una decisión.
 
 | Recurso | Cuándo abrirlo |
 |---|---|
-| [Documentación](https://go.dev/doc/) | índice de todo lo oficial: instalación, módulos, testing, diagnóstico |
-| [A Tour of Go](https://go.dev/tour/) | recorrido interactivo de sintaxis, interfaces y concurrencia |
-| [Tutoriales](https://go.dev/doc/tutorial/) | guías paso a paso: módulos, errores, JSON, base de datos, generics, fuzzing, `govulncheck` |
-| [How to Write Go Code](https://go.dev/doc/code) | cómo organizar paquetes dentro de un módulo y usar el comando `go` |
-| [Effective Go](https://go.dev/doc/effective_go) | convenciones de estilo; aviso: es de 2009 y no cubre generics ni módulos |
-| [Code Review Comments](https://go.dev/wiki/CodeReviewComments) | el detalle de estilo que falta en *Effective Go*: errores, interfaces, nombres |
-| [pkg.go.dev](https://pkg.go.dev/) | documentación de la librería estándar y de cualquier módulo |
-| [Especificación del lenguaje](https://go.dev/ref/spec) | la definición exacta, para cuando hay duda |
-| [Go Playground](https://go.dev/play/) | probar código en el navegador sin instalar nada |
-| [Blog](https://go.dev/blog/) y [charlas grabadas](https://go.dev/talks/) | decisiones de diseño y conferencias del equipo de Go |
-| [Wiki: Learn](https://go.dev/wiki/Learn) | listado comunitario de cursos y libros |
+| [Documentación](https://go.dev/doc/) | Índice de todo lo oficial: instalación, módulos, testing, diagnóstico |
+| [A Tour of Go](https://go.dev/tour/) | Recorrido interactivo de sintaxis, interfaces y concurrencia |
+| [Tutoriales](https://go.dev/doc/tutorial/) | Guías paso a paso: módulos, errores, JSON, base de datos, generics, fuzzing, `govulncheck` |
+| [How to Write Go Code](https://go.dev/doc/code) | Cómo organizar paquetes dentro de un módulo y usar el comando `go` |
+| [Effective Go](https://go.dev/doc/effective_go) | Convenciones de estilo; aviso: es de 2009 y no cubre generics ni módulos |
+| [Code Review Comments](https://go.dev/wiki/CodeReviewComments) | El detalle de estilo que falta en *Effective Go*: errores, interfaces, nombres |
+| [pkg.go.dev](https://pkg.go.dev/) | Documentación de la librería estándar y de cualquier módulo |
+| [Especificación del lenguaje](https://go.dev/ref/spec) | La definición exacta, para cuando hay duda |
+| [Go Playground](https://go.dev/play/) | Probar código en el navegador sin instalar nada |
+| [Blog](https://go.dev/blog/) y [charlas grabadas](https://go.dev/talks/) | Decisiones de diseño y conferencias del equipo de Go |
+| [Wiki: Learn](https://go.dev/wiki/Learn) | Listado comunitario de cursos y libros |
 
 ### Práctica
 
 | Recurso | Formato |
 |---|---|
-| [Go by Example](https://gobyexample.com/) | ejemplos cortos y anotados; sirve de hoja de referencia |
-| [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/) | libro gratis: se aprende Go escribiendo tests (TDD) |
+| [Go by Example](https://gobyexample.com/) | Ejemplos cortos y anotados; sirve de hoja de referencia |
+| [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/) | Libro gratis: se aprende Go escribiendo tests (TDD) |
 | [Exercism — track de Go](https://exercism.org/tracks/go) | 168 ejercicios con mentoría humana gratuita |
 | [Gophercises](https://gophercises.com/) | ~20 mini-proyectos en video, con foco en stdlib y concurrencia |
-| [inancgumus/learngo](https://github.com/inancgumus/learngo) | más de 1000 ejemplos, ejercicios y quizzes para corregir |
+| [inancgumus/learngo](https://github.com/inancgumus/learngo) | Más de 1000 ejemplos, ejercicios y quizzes para corregir |
 
 ### Video
 
 | Recurso | Formato |
 |---|---|
-| [Curso de Go desde cero (freeCodeCamp en español)](https://www.freecodecamp.org/espanol/news/aprende-go-curso-de-golang-desde-cero) | curso completo en español, gratis |
-| [Go Programming – Full Course (Tech With Tim)](https://www.youtube.com/watch?v=V-lI7AmusGs) | curso en inglés, de sintaxis a concurrencia |
+| [Curso de Go desde cero (freeCodeCamp en español)](https://www.freecodecamp.org/espanol/news/aprende-go-curso-de-golang-desde-cero) | Curso completo en español, gratis |
+| [Go Programming – Full Course (Tech With Tim)](https://www.youtube.com/watch?v=V-lI7AmusGs) | Curso en inglés, de sintaxis a concurrencia |
 
 Un orden que funciona: el [Tour](https://go.dev/tour/) antes del capítulo 01, *Learn Go with
 Tests* al llegar al capítulo 10, y *Code Review Comments* + las charlas oficiales al terminar

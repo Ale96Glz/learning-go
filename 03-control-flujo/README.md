@@ -318,12 +318,12 @@ go run ./03-control-flujo
 
 | Mensaje | Qué pasó | Solución |
 |---|---|---|
-| `undefined: edad` fuera del `if` | la variable del `if` es local al bloque | declarala antes, o usá el valor dentro |
+| `undefined: edad` fuera del `if` | La variable del `if` es local al bloque | Declarala antes, o usá el valor dentro |
 | `declared and not used: f` | `for i, f := range` sin usar `f` | `for i := range` o `_` |
-| `break` no sale del loop externo | `break` solo corta el `for` más cercano | etiqueta o `return` |
-| el map cambia de orden entre corridas | `range` randomiza | ordená las claves |
-| `forever` / el programa no termina | `for` sin condición y sin `break` | asegurate una salida |
-| `i++` como valor (`x := i++`) | en Go es sentencia | `x := i; i++` |
+| `break` no sale del loop externo | `break` solo corta el `for` más cercano | Etiqueta o `return` |
+| El map cambia de orden entre corridas | `range` randomiza | Ordená las claves |
+| `forever` / el programa no termina | `for` sin condición y sin `break` | Asegurate una salida |
+| `i++` como valor (`x := i++`) | En Go es sentencia | `x := i; i++` |
 
 ## Por qué importa en el trabajo
 

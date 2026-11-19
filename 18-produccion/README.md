@@ -170,10 +170,10 @@ srv := &http.Server{
 
 | Campo | Qué limita | Por qué ese valor |
 |---|---|---|
-| `ReadHeaderTimeout` | desde que se acepta la conexión hasta que llegan los headers | 5 s corta Slowloris: un cliente que abre y no manda nada |
-| `ReadTimeout` | la lectura completa del request, body incluido | 10 s; un body más lento que eso es un cliente roto o malicioso |
-| `WriteTimeout` | desde el fin de los headers hasta el fin de la respuesta | 20 s; cubre handlers lentos sin dejar conexiones eternas |
-| `IdleTimeout` | una conexión keep-alive sin requests | 60 s; libera conexiones ociosas |
+| `ReadHeaderTimeout` | Desde que se acepta la conexión hasta que llegan los headers | 5 s corta Slowloris: un cliente que abre y no manda nada |
+| `ReadTimeout` | La lectura completa del request, body incluido | 10 s; un body más lento que eso es un cliente roto o malicioso |
+| `WriteTimeout` | Desde el fin de los headers hasta el fin de la respuesta | 20 s; cubre handlers lentos sin dejar conexiones eternas |
+| `IdleTimeout` | Una conexión keep-alive sin requests | 60 s; libera conexiones ociosas |
 
 Sin `ReadHeaderTimeout`, el default es **cero: sin límite**. Miles de conexiones abiertas sin
 mandar nada agotan los file descriptors y el servidor deja de aceptar. Es el ataque más barato
@@ -437,18 +437,18 @@ string: eso es lo que hace que valga la pena el log estructurado.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| el puerto sigue ocupado al reiniciar | el proceso anterior no murió | matalo, o revisá que `Shutdown` termine |
-| el deploy corta requests | no hay `Shutdown`, o el `ENTRYPOINT` es shell | usá `Shutdown` y forma exec |
-| el proceso no se apaga nunca | un handler ignora el context y tarda más que el timeout | deadline propio y `Shutdown` con techo |
-| Kubernetes reinicia el pod en loop | `/salud` consulta la base | liveness sin dependencias |
-| el balanceador manda tráfico a un pod sin base | `/listo` no consulta nada | readiness con `PingContext` |
-| `http: superfluous response.WriteHeader` | escribiste el status dos veces | un solo `WriteHeader` |
-| conexiones agotadas sin tráfico | falta `ReadHeaderTimeout` | ponelo |
-| el cliente ve la respuesta cortada | `WriteTimeout` menor que el handler | subilo o acortá el handler |
-| `!BADKEY` en un log | pasaste un argumento impar a `slog.Info` | revisá los pares clave-valor |
-| `exec format error` en el contenedor | binario para otra arquitectura | `--platform linux/amd64` o build multi-arch |
-| `no such file or directory` al correr en distroless | binario dinámico | `CGO_ENABLED=0` |
-| no podés entrar al contenedor | distroless no tiene shell | logs + contenedor de debug |
+| El puerto sigue ocupado al reiniciar | El proceso anterior no murió | Matalo, o revisá que `Shutdown` termine |
+| El deploy corta requests | No hay `Shutdown`, o el `ENTRYPOINT` es shell | Usá `Shutdown` y forma exec |
+| El proceso no se apaga nunca | Un handler ignora el context y tarda más que el timeout | Deadline propio y `Shutdown` con techo |
+| Kubernetes reinicia el pod en loop | `/salud` consulta la base | Liveness sin dependencias |
+| El balanceador manda tráfico a un pod sin base | `/listo` no consulta nada | Readiness con `PingContext` |
+| `http: superfluous response.WriteHeader` | Escribiste el status dos veces | Un solo `WriteHeader` |
+| Conexiones agotadas sin tráfico | Falta `ReadHeaderTimeout` | Ponelo |
+| El cliente ve la respuesta cortada | `WriteTimeout` menor que el handler | Subilo o acortá el handler |
+| `!BADKEY` en un log | Pasaste un argumento impar a `slog.Info` | Revisá los pares clave-valor |
+| `exec format error` en el contenedor | Binario para otra arquitectura | `--platform linux/amd64` o build multi-arch |
+| `no such file or directory` al correr en distroless | Binario dinámico | `CGO_ENABLED=0` |
+| No podés entrar al contenedor | Distroless no tiene shell | Logs + contenedor de debug |
 
 ## Por qué importa en el trabajo
 

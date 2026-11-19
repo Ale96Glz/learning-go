@@ -421,17 +421,17 @@ variables de entorno (una vez que las inyectás).
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `PORT inválido: "abc"` | no es número | pasá un entero |
-| `PORT inválido: "70000"` | fuera de 1-65535 | usá un puerto válido |
-| `TIMEOUT inválido: "10"` | falta la unidad | `10s`, `500ms`, `1m` |
-| `TIMEOUT inválido: "-1s"` | duración negativa | valor positivo |
-| `APP_ENV inválido: "qa"` | no está en la allowlist | `dev`, `staging` o `prod` |
-| `TOKEN_SECRETO es obligatorio` | falta o es corto | 32+ caracteres aleatorios |
-| funciona local y no en Docker | la variable no está en el contenedor | `-e`/`env_file`/Secret |
-| el secreto aparece en un log | usaste `%#v` o serializaste el struct | `%v` + `String()`, o `json:"-"` |
-| el timeout se ve como `45000000000` | `%d` con `time.Duration` | `%v` o `%s` |
-| el test falla solo en tu máquina | `PORT` real en el entorno | `t.Setenv` en el test |
-| `$env:PORT` "no funciona" | la definiste en otra terminal | definila en la misma sesión |
+| `PORT inválido: "abc"` | No es número | Pasá un entero |
+| `PORT inválido: "70000"` | Fuera de 1-65535 | Usá un puerto válido |
+| `TIMEOUT inválido: "10"` | Falta la unidad | `10s`, `500ms`, `1m` |
+| `TIMEOUT inválido: "-1s"` | Duración negativa | Valor positivo |
+| `APP_ENV inválido: "qa"` | No está en la allowlist | `dev`, `staging` o `prod` |
+| `TOKEN_SECRETO es obligatorio` | Falta o es corto | 32+ caracteres aleatorios |
+| Funciona local y no en Docker | La variable no está en el contenedor | `-e`/`env_file`/Secret |
+| El secreto aparece en un log | Usaste `%#v` o serializaste el struct | `%v` + `String()`, o `json:"-"` |
+| El timeout se ve como `45000000000` | `%d` con `time.Duration` | `%v` o `%s` |
+| El test falla solo en tu máquina | `PORT` real en el entorno | `t.Setenv` en el test |
+| `$env:PORT` "no funciona" | La definiste en otra terminal | Definila en la misma sesión |
 
 ## Por qué importa en el trabajo
 

@@ -286,13 +286,13 @@ La salida de las goroutines puede variar de orden entre corridas. Eso no es un b
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `fatal error: all goroutines are asleep - deadlock!` | nadie recibe o nadie envía | revisá quién cierra cada canal |
-| `send on closed channel` | cerraste del lado del consumidor | cierra solo el productor |
-| `close of closed channel` | dos cierres | un solo dueño del cierre |
-| el programa termina sin imprimir nada | no esperaste las goroutines | `WaitGroup` o canal |
-| contador menor a 100 | data race | mutex o atomic |
-| se cuelga en `wg.Wait()` | falta un `Done` | `defer wg.Done()` |
-| `concurrent map writes` | map compartido sin lock | `sync.Map` o mutex |
+| `fatal error: all goroutines are asleep - deadlock!` | Nadie recibe o nadie envía | Revisá quién cierra cada canal |
+| `send on closed channel` | Cerraste del lado del consumidor | Cierra solo el productor |
+| `close of closed channel` | Dos cierres | Un solo dueño del cierre |
+| El programa termina sin imprimir nada | No esperaste las goroutines | `WaitGroup` o canal |
+| Contador menor a 100 | Data race | Mutex o atomic |
+| Se cuelga en `wg.Wait()` | Falta un `Done` | `defer wg.Done()` |
+| `concurrent map writes` | Map compartido sin lock | `sync.Map` o mutex |
 
 ## Por qué importa en el trabajo
 

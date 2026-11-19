@@ -339,12 +339,12 @@ podés abrirlo para ver el formato de una línea por usuario.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `*Memoria does not implement Repositorio` | falta un método o la firma no coincide | revisá nombre y parámetros exactos |
-| `assignment to entry in nil map` | map sin `make` | inicializalo en el constructor |
-| `r != nil` con un puntero nil | interfaz con tipo seteado | no metas punteros nil |
-| `scanner: token too long` | línea de más de 64 KB | `sc.Buffer` o `bufio.Reader` |
-| "no encontrado" cuando el archivo tenía un error | falta `sc.Err()` | chequealo después del loop |
-| `%T` imprime `*main.Memoria` y esperabas `Memoria` | guardaste un puntero | usá `%T` para confirmar |
+| `*Memoria does not implement Repositorio` | Falta un método o la firma no coincide | Revisá nombre y parámetros exactos |
+| `assignment to entry in nil map` | Map sin `make` | Inicializalo en el constructor |
+| `r != nil` con un puntero nil | Interfaz con tipo seteado | No metas punteros nil |
+| `scanner: token too long` | Línea de más de 64 KB | `sc.Buffer` o `bufio.Reader` |
+| "no encontrado" cuando el archivo tenía un error | Falta `sc.Err()` | Chequealo después del loop |
+| `%T` imprime `*main.Memoria` y esperabas `Memoria` | Guardaste un puntero | Usá `%T` para confirmar |
 
 ## Por qué importa en el trabajo
 

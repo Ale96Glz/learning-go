@@ -39,8 +39,8 @@ inicial utilizable**, y ese valor depende del tipo:
 | `int`, `int64`, `float64` | `0` |
 | `string` | `""` (string vacío, no `null`) |
 | `bool` | `false` |
-| punteros, slices, maps, interfaces | `nil` |
-| struct | un struct con todos sus campos en zero value |
+| Punteros, slices, maps, interfaces | `nil` |
+| Struct | Un struct con todos sus campos en zero value |
 
 Por eso en Go no existe `NullPointerException` al arrancar: un `string` nunca es null, un
 `int` nunca es null. El precio es que `""` y `0` pueden significar "sin dato"; de eso te
@@ -59,12 +59,12 @@ Ana (30) activo=false saldo=0.00 alias="" puntero=<nil>
 
 | Verbo | Argumento | Qué hace |
 |---|---|---|
-| `%s` | `nombre` | string tal cual |
-| `%d` | `edad` | entero en base 10 |
-| `%t` | `activo` | booleano |
-| `%.2f` | `saldo` | float con 2 decimales (redondea) |
-| `%q` | `alias` | string **entre comillas**: así ves que está vacío |
-| `%v` | `puntero` | representación por defecto; un puntero nil se ve `<nil>` |
+| `%s` | `nombre` | String tal cual |
+| `%d` | `edad` | Entero en base 10 |
+| `%t` | `activo` | Booleano |
+| `%.2f` | `saldo` | Float con 2 decimales (redondea) |
+| `%q` | `alias` | String **entre comillas**: así ves que está vacío |
+| `%v` | `puntero` | Representación por defecto; un puntero nil se ve `<nil>` |
 
 `%q` parece cosmético, pero es la forma de distinguir `""` de `" "`: con `%s` los dos se
 ven igual (nada), con `%q` ves `""` y `" "`. Cuando depures strings, usalo.
@@ -266,12 +266,12 @@ $env:PORT="abc"; go run ./02-tipos-variables           # falla a propósito
 
 | Mensaje | Qué pasó | Solución |
 |---|---|---|
-| `mismatched types int and float64` | mezclaste tipos sin convertir | `float64(x)` explícito |
-| `declared and not used: x` | variable que nunca leés | usala o borrala |
+| `mismatched types int and float64` | Mezclaste tipos sin convertir | `float64(x)` explícito |
+| `declared and not used: x` | Variable que nunca leés | Usala o borrala |
 | `cannot use "8080" (untyped string) as int` | `os.Getenv` siempre es string | `strconv.Atoi` |
 | `timeout: 30000000000` | `%d` con `time.Duration` | `%v` |
-| `PORT inválido ("")` | trataste vacío como valor | preguntá `v != ""` |
-| `undefined: Info` | constante de otro paquete | `paquete.Info` |
+| `PORT inválido ("")` | Trataste vacío como valor | Preguntá `v != ""` |
+| `undefined: Info` | Constante de otro paquete | `paquete.Info` |
 
 ## Por qué importa en el trabajo
 

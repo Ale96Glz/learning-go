@@ -584,16 +584,16 @@ seguridad: pasa siempre. El ejercicio 4 te pide arreglarlo.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `crypto/bcrypt: hashedSecret too short` | guardaste un hash truncado o vacío | guardá los 60 caracteres completos |
-| `bcrypt: password length exceeds 72 bytes` | no validaste antes | rechazá con 422 en `Registrar` |
-| `401` con un token recién emitido | header sin `Bearer ` o con minúsculas | `Authorization: Bearer <token>` |
-| `panic: interface conversion` en `/yo` | registraste la ruta sin `ConAuth` | envolvé el handler |
-| el hash aparece en el JSON | falta `json:"-"` | agregalo y arreglá el test |
-| dos emails iguales con mayúsculas | no normalizaste | `ToLower(TrimSpace(...))` |
-| login tarda distinto según el email | falta `hashFalso` | compará siempre un hash |
-| sesión inválida tras reiniciar | sesiones en memoria | tabla de sesiones |
-| `undefined: bcrypt` | falta la dependencia | `go get golang.org/x/crypto/bcrypt` |
-| todos los `%` del test salen raros | consola Windows sin UTF-8 | `chcp 65001` o usá PowerShell 7 |
+| `crypto/bcrypt: hashedSecret too short` | Guardaste un hash truncado o vacío | Guardá los 60 caracteres completos |
+| `bcrypt: password length exceeds 72 bytes` | No validaste antes | Rechazá con 422 en `Registrar` |
+| `401` con un token recién emitido | Header sin `Bearer ` o con minúsculas | `Authorization: Bearer <token>` |
+| `panic: interface conversion` en `/yo` | Registraste la ruta sin `ConAuth` | Envolvé el handler |
+| El hash aparece en el JSON | Falta `json:"-"` | Agregalo y arreglá el test |
+| Dos emails iguales con mayúsculas | No normalizaste | `ToLower(TrimSpace(...))` |
+| Login tarda distinto según el email | Falta `hashFalso` | Compará siempre un hash |
+| Sesión inválida tras reiniciar | Sesiones en memoria | Tabla de sesiones |
+| `undefined: bcrypt` | Falta la dependencia | `go get golang.org/x/crypto/bcrypt` |
+| Todos los `%` del test salen raros | Consola Windows sin UTF-8 | `chcp 65001` o usá PowerShell 7 |
 
 ## Por qué importa en el trabajo
 

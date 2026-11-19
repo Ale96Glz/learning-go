@@ -308,12 +308,12 @@ go run ./05-structs-metodos
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `copia` modificado y el original también | es un slice o un map | `slices.Clone`, `maps.Clone` |
-| `Suspender` no cambia el estado | receptor valor | receptor puntero |
-| `fmt.Println(u)` imprime `&{...}` | falta `String()` o el receptor es puntero y el valor no es direccionable | agregá `String()` con receptor valor |
-| JSON con `"Nombre"` | falta el tag | `` `json:"nombre"` `` |
-| `cannot use Usuario as Estado` | tipos distintos aunque el base sea string | `Estado(s)` explícito |
-| fecha corrida unas horas | guardaste hora local | `.UTC()` al guardar |
+| `copia` modificado y el original también | Es un slice o un map | `slices.Clone`, `maps.Clone` |
+| `Suspender` no cambia el estado | Receptor valor | Receptor puntero |
+| `fmt.Println(u)` imprime `&{...}` | Falta `String()` o el receptor es puntero y el valor no es direccionable | Agregá `String()` con receptor valor |
+| JSON con `"Nombre"` | Falta el tag | `` `json:"nombre"` `` |
+| `cannot use Usuario as Estado` | Tipos distintos aunque el base sea string | `Estado(s)` explícito |
+| Fecha corrida unas horas | Guardaste hora local | `.UTC()` al guardar |
 
 ## Por qué importa en el trabajo
 

@@ -238,12 +238,12 @@ tests que vas a escribir.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `no tests to run` | el archivo no termina en `_test.go` o la función no empieza con `Test` | renombrá |
-| `undefined: Dividir` | `package main_test` sin importar el paquete | usá `package main` o importá |
-| el test pasa pero el bug sigue | solo probaste el camino feliz | agregá casos de error |
-| `%v` muestra `<nil>` en un mensaje | imprimiste un error nil | es normal, o usá `%q`/condicional |
-| un caso falla y los demás no corren | `t.Fatalf` a nivel del test padre | usá `t.Run` por caso |
-| `-race` no compila en Windows sin CGO | falta toolchain de C | instalá gcc o corré `-race` en CI Linux |
+| `no tests to run` | El archivo no termina en `_test.go` o la función no empieza con `Test` | Renombrá |
+| `undefined: Dividir` | `package main_test` sin importar el paquete | Usá `package main` o importá |
+| El test pasa pero el bug sigue | Solo probaste el camino feliz | Agregá casos de error |
+| `%v` muestra `<nil>` en un mensaje | Imprimiste un error nil | Es normal, o usá `%q`/condicional |
+| Un caso falla y los demás no corren | `t.Fatalf` a nivel del test padre | Usá `t.Run` por caso |
+| `-race` no compila en Windows sin CGO | Falta toolchain de C | Instalá gcc o corré `-race` en CI Linux |
 
 ## Por qué importa en el trabajo
 

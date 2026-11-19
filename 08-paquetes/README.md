@@ -232,12 +232,12 @@ go list ./...        # todos los paquetes del módulo
 
 | Mensaje | Qué pasó | Solución |
 |---|---|---|
-| `use of internal package not allowed` | importaste `internal` desde afuera | mové el import o el paquete |
-| `cannot refer to unexported field` | campo en minúscula desde otro paquete | usá el constructor o un método |
-| `undefined: saludo.Hola` | no importaste o el nombre es privado | revisá import y mayúscula |
-| `import cycle not allowed` | A importa B y B importa A | extraé lo común a un tercer paquete |
-| `found packages main and saludo` | dos `package` en la misma carpeta | un paquete por carpeta |
-| `no required module provides package` | ruta mal escrita o falta `go get` | revisá el `module` y la ruta |
+| `use of internal package not allowed` | Importaste `internal` desde afuera | Mové el import o el paquete |
+| `cannot refer to unexported field` | Campo en minúscula desde otro paquete | Usá el constructor o un método |
+| `undefined: saludo.Hola` | No importaste o el nombre es privado | Revisá import y mayúscula |
+| `import cycle not allowed` | A importa B y B importa A | Extraé lo común a un tercer paquete |
+| `found packages main and saludo` | Dos `package` en la misma carpeta | Un paquete por carpeta |
+| `no required module provides package` | Ruta mal escrita o falta `go get` | Revisá el `module` y la ruta |
 
 ## Por qué importa en el trabajo
 

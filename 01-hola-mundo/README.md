@@ -154,9 +154,9 @@ La diferencia entre las tres funciones, en una tabla mental:
 
 | Función | Separa con | Agrega salto | Usa verbos |
 |---|---|---|---|
-| `fmt.Print(a, b)` | nada | no | no |
-| `fmt.Println(a, b)` | espacio | sí | no |
-| `fmt.Printf(fmt, a, b)` | lo que digas vos | solo si ponés `\n` | sí |
+| `fmt.Print(a, b)` | Nada | No | No |
+| `fmt.Println(a, b)` | Espacio | Sí | No |
+| `fmt.Printf(fmt, a, b)` | Lo que digas vos | Solo si ponés `\n` | Sí |
 
 Regla práctica: `Println` para mensajes sueltos y depuración rápida, `Printf` cuando
 necesitás control del formato.
@@ -242,11 +242,11 @@ go run ./01-hola-mundo error; echo $LASTEXITCODE   # PowerShell
 
 | Mensaje | Qué pasó | Solución |
 |---|---|---|
-| `"fmt" imported and not used` | importaste y no lo usás | borrá el import |
-| `declared and not used: args` | variable creada y nunca leída | usala o borrala (`_ = args` no, arreglá el código) |
-| `index out of range [0]` | leíste `os.Args[1]` sin argumentos | preguntá `len(args) > 0` antes |
-| `%!d(string=Ana)` | verbo de número con string | usá `%s` |
-| `Hola, Ana!PS C:\>` | `Printf` sin `\n` | agregá el salto |
+| `"fmt" imported and not used` | Importaste y no lo usás | Borrá el import |
+| `declared and not used: args` | Variable creada y nunca leída | Usala o borrala (`_ = args` no, arreglá el código) |
+| `index out of range [0]` | Leíste `os.Args[1]` sin argumentos | Preguntá `len(args) > 0` antes |
+| `%!d(string=Ana)` | Verbo de número con string | Usá `%s` |
+| `Hola, Ana!PS C:\>` | `Printf` sin `\n` | Agregá el salto |
 
 ## Por qué esto importa en el trabajo
 

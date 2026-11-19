@@ -1094,16 +1094,16 @@ la corrección se perdió. Es el ejercicio 3. (En el bloque de arriba recorté e
 
 | Método | Ruta | Auth | Respuesta |
 |---|---|---|---|
-| GET | `/salud` | no | `200 ok` (texto) |
-| GET | `/listo` | no | `200 listo` / `503` |
-| POST | `/api/v1/auth/registro` | no | `201` usuario / `409` / `422` / `400` |
-| POST | `/api/v1/auth/login` | no | `200` token / `401` |
-| GET | `/api/v1/auth/yo` | sí | `200` usuario / `401` |
-| GET | `/api/v1/tareas` | sí | `200 {"tareas":[...],"total":n}` |
-| POST | `/api/v1/tareas` | sí | `201` tarea / `422` |
-| GET | `/api/v1/tareas/{id}` | sí | `200` tarea / `404` / `400` |
-| PUT | `/api/v1/tareas/{id}` | sí | `200` tarea / `404` / `400` / `422` |
-| DELETE | `/api/v1/tareas/{id}` | sí | `204` / `404` / `400` |
+| GET | `/salud` | No | `200 ok` (texto) |
+| GET | `/listo` | No | `200 listo` / `503` |
+| POST | `/api/v1/auth/registro` | No | `201` usuario / `409` / `422` / `400` |
+| POST | `/api/v1/auth/login` | No | `200` token / `401` |
+| GET | `/api/v1/auth/yo` | Sí | `200` usuario / `401` |
+| GET | `/api/v1/tareas` | Sí | `200 {"tareas":[...],"total":n}` |
+| POST | `/api/v1/tareas` | Sí | `201` tarea / `422` |
+| GET | `/api/v1/tareas/{id}` | Sí | `200` tarea / `404` / `400` |
+| PUT | `/api/v1/tareas/{id}` | Sí | `200` tarea / `404` / `400` / `422` |
+| DELETE | `/api/v1/tareas/{id}` | Sí | `204` / `404` / `400` |
 
 Errores de la API: `{"error":"..."}`. Códigos: 400 JSON o id inválido, 401 sin token o token
 inválido, 404 no existe, 409 email duplicado, 422 datos inválidos, 500 error interno.
@@ -1144,15 +1144,15 @@ Si el request falla, el status lo decide la capa más cercana que sepa traducirl
 
 | Error de dominio | HTTP | Dónde se decide |
 |---|---|---|
-| JSON malformado o campo desconocido | 400 | handler |
+| JSON malformado o campo desconocido | 400 | Handler |
 | `/tareas/abc` | 400 | `parseID` |
-| falta token / token inválido o vencido | 401 | `auth.ConAuth` |
-| tarea inexistente | 404 | handler, desde `ErrNoExiste` |
-| ruta inexistente | 404 | `ServeMux` (texto plano) |
-| método no permitido | 405 | `ServeMux` (texto plano) |
-| email duplicado | 409 | `main`, en registro |
-| título vacío o de más de 200 caracteres | 422 | handler, desde `ErrTituloInvalido` |
-| base caída, panic | 500 | handler / `Recuperacion` |
+| Falta token / token inválido o vencido | 401 | `auth.ConAuth` |
+| Tarea inexistente | 404 | Handler, desde `ErrNoExiste` |
+| Ruta inexistente | 404 | `ServeMux` (texto plano) |
+| Método no permitido | 405 | `ServeMux` (texto plano) |
+| Email duplicado | 409 | `main`, en registro |
+| Título vacío o de más de 200 caracteres | 422 | Handler, desde `ErrTituloInvalido` |
+| Base caída, panic | 500 | Handler / `Recuperacion` |
 
 La regla es que **ninguna capa inventa un status**: cada una devuelve un error de dominio y la
 de arriba traduce. `repo` no importa `net/http`; `ConAuth` no sabe qué es una tarea.
@@ -1442,21 +1442,21 @@ Ninguna de estas es un bug de sintaxis: son decisiones y deudas. Saber cuáles s
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `unknown driver "sqlite"` | falta el import en blanco | `_ "modernc.org/sqlite"` |
-| `database is locked` | dos procesos o más de una conexión escribiendo | un proceso, `MaxOpenConns(1)` |
-| `sql: database is closed` | usaste el repo después de `Cerrar` | revisá el orden en `main` |
-| `unsupported Scan, storing driver.Value type int64 into type *bool` | escaneaste `INTEGER` a `bool` | escaneá a `int` y comparás |
-| `http: superfluous response.WriteHeader` | dos `WriteHeader` | uno solo; revisá `Recuperacion` |
-| el JSON sale `null` en vez de `[]` | slice nil | `make([]Tarea, 0)` |
-| `duplicate column name` al migrar | migración sin `IF NOT EXISTS` | idempotencia o migraciones versionadas |
-| el token no funciona después de reiniciar | sesiones en memoria | tabla de sesiones |
-| el usuario existe pero el login da 401 tras reiniciar | usuarios en memoria | tabla de usuarios |
-| `bind: Only one usage of each socket address` y exit 0 | puerto ocupado y `stop()` | matá el proceso viejo; corregí el exit code |
-| `404 page not found` en texto plano | ruta inexistente | revisá el prefijo `/api/v1` |
-| `405` en texto plano | método no registrado | usá el método de la tabla |
-| `{"error":"id inválido"}` | `/tareas/abc` | el id va en número |
-| `curl` manda el JSON vacío en Windows | comillas sin escapar | `--data-binary @archivo.json` o `Invoke-RestMethod` |
-| acentos raros en la consola | codepage de Windows | `chcp 65001` o PowerShell 7 |
+| `unknown driver "sqlite"` | Falta el import en blanco | `_ "modernc.org/sqlite"` |
+| `database is locked` | Dos procesos o más de una conexión escribiendo | Un proceso, `MaxOpenConns(1)` |
+| `sql: database is closed` | Usaste el repo después de `Cerrar` | Revisá el orden en `main` |
+| `unsupported Scan, storing driver.Value type int64 into type *bool` | Escaneaste `INTEGER` a `bool` | Escaneá a `int` y comparás |
+| `http: superfluous response.WriteHeader` | Dos `WriteHeader` | Uno solo; revisá `Recuperacion` |
+| El JSON sale `null` en vez de `[]` | Slice nil | `make([]Tarea, 0)` |
+| `duplicate column name` al migrar | Migración sin `IF NOT EXISTS` | Idempotencia o migraciones versionadas |
+| El token no funciona después de reiniciar | Sesiones en memoria | Tabla de sesiones |
+| El usuario existe pero el login da 401 tras reiniciar | Usuarios en memoria | Tabla de usuarios |
+| `bind: Only one usage of each socket address` y exit 0 | Puerto ocupado y `stop()` | Matá el proceso viejo; corregí el exit code |
+| `404 page not found` en texto plano | Ruta inexistente | Revisá el prefijo `/api/v1` |
+| `405` en texto plano | Método no registrado | Usá el método de la tabla |
+| `{"error":"id inválido"}` | `/tareas/abc` | El id va en número |
+| `curl` manda el JSON vacío en Windows | Comillas sin escapar | `--data-binary @archivo.json` o `Invoke-RestMethod` |
+| Acentos raros en la consola | Codepage de Windows | `chcp 65001` o PowerShell 7 |
 
 ## Por qué importa en el trabajo
 

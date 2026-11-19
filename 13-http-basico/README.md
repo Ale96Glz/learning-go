@@ -389,14 +389,14 @@ go test -v ./13-http-basico
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `concurrent map writes` | map sin lock | `mu.Lock()` alrededor de cada acceso |
-| todos los requests ven el mismo ID | `nextID` fuera del lock | asignalo dentro |
-| `superfluous response.WriteHeader call` | escribiste headers dos veces | un solo `WriteHeader` |
-| el body no llega al cliente | faltó `WriteHeader` o headers después de escribirlo | orden: headers → status → body |
-| 405 sin `Allow` | falta el header | `w.Header().Set("Allow", ...)` |
-| `http: request body too large` | `MaxBytesReader` | es el comportamiento buscado |
-| el cliente lento bloquea todo | lock durante el encode | copiá y soltá el lock |
-| 404 en una ruta que existe | patrón con/sin barra final | `/tareas` exacto, `/tareas/` subárbol |
+| `concurrent map writes` | Map sin lock | `mu.Lock()` alrededor de cada acceso |
+| Todos los requests ven el mismo ID | `nextID` fuera del lock | Asignalo dentro |
+| `superfluous response.WriteHeader call` | Escribiste headers dos veces | Un solo `WriteHeader` |
+| El body no llega al cliente | Faltó `WriteHeader` o headers después de escribirlo | Orden: headers → status → body |
+| 405 sin `Allow` | Falta el header | `w.Header().Set("Allow", ...)` |
+| `http: request body too large` | `MaxBytesReader` | Es el comportamiento buscado |
+| El cliente lento bloquea todo | Lock durante el encode | Copiá y soltá el lock |
+| 404 en una ruta que existe | Patrón con/sin barra final | `/tareas` exacto, `/tareas/` subárbol |
 
 ## Por qué importa en el trabajo
 

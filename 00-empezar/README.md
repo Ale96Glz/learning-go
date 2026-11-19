@@ -35,13 +35,13 @@ necesita existir, pero si publicas el repo conviene que coincida con su URL.
 
 | Comando | Qué hace |
 |---|---|
-| `go run ./01-hola-mundo` | compila y ejecuta (no deja binario) |
-| `go build ./...` | compila todo; falla si algo no compila |
-| `go test ./...` | corre todos los tests |
-| `go vet ./...` | detecta errores sospechosos (formato de `Printf`, locks copiados...) |
-| `gofmt -w .` | formatea; **no se discute el estilo** |
-| `go mod tidy` | sincroniza `go.mod`/`go.sum` con lo que importas |
-| `go doc fmt.Println` | documentación en la terminal |
+| `go run ./01-hola-mundo` | Compila y ejecuta (no deja binario) |
+| `go build ./...` | Compila todo; falla si algo no compila |
+| `go test ./...` | Corre todos los tests |
+| `go vet ./...` | Detecta errores sospechosos (formato de `Printf`, locks copiados...) |
+| `gofmt -w .` | Formatea; **no se discute el estilo** |
+| `go mod tidy` | Sincroniza `go.mod`/`go.sum` con lo que importas |
+| `go doc fmt.Println` | Documentación en la terminal |
 
 `go build` con un `package main` deja un `.exe` (Windows) en la carpeta actual. Para
 producción se usa `go build -o bin/servidor ./proyecto`.
@@ -102,11 +102,11 @@ en [verbos-formato.md](verbos-formato.md). Vale la pena leerla antes del capítu
 
 | Error | Causa |
 |---|---|
-| `no required module provides package ...` | falta `go mod tidy` o el import está mal |
-| `declared and not used` | variable sin usar; usa `_` o bórrala |
-| `imported and not used` | import sin usar; bórralo |
+| `no required module provides package ...` | Falta `go mod tidy` o el import está mal |
+| `declared and not used` | Variable sin usar; usa `_` o bórrala |
+| `imported and not used` | Import sin usar; bórralo |
 | `undefined: X` | X está en otro paquete y no lo exportaste (minúscula) |
-| `cannot use ... as ...` | tipos distintos; Go no convierte solo |
+| `cannot use ... as ...` | Tipos distintos; Go no convierte solo |
 
 ## Ejercicio
 

@@ -25,24 +25,24 @@ aparece en pantalla. Por eso `go vet` revisa los `Printf`.
 
 | Verbo | Qué imprime | Ejemplo | Salida |
 |---|---|---|---|
-| `%v` | el valor "por defecto", sirve para casi todo | `%v`, `[]int{1,2}` | `[1 2]` |
-| `%+v` | struct **con nombres de campo** | `%+v`, `Usuario{"Ana",30}` | `{Nombre:Ana Edad:30}` |
-| `%#v` | representación Go (para depurar) | `%#v`, `Usuario{"Ana",30}` | `main.Usuario{Nombre:"Ana", Edad:30}` |
-| `%T` | el **tipo** del valor | `%T`, `30` / `"Ana"` | `int` / `string` |
-| `%t` | booleano | `%t`, `true` | `true` |
-| `%d` | entero en base 10 | `%d`, `42` | `42` |
-| `%5d` | entero, ancho mínimo 5, alineado a la derecha | `%5d`, `42` | `   42` |
-| `%-5d` | igual, alineado a la izquierda | `%-5d`, `42` | `42   ` |
-| `%05d` | rellena con ceros | `%05d`, `42` | `00042` |
-| `%s` | string | `%s`, `"Ana"` | `Ana` |
-| `%q` | string **entre comillas** y con escapes | `%q`, `"Ana"` | `"Ana"` |
-| `%c` | el número como carácter Unicode | `%c`, `65` | `A` |
-| `%x` | entero en hexadecimal | `%x`, `255` | `ff` |
-| `%f` | float | `%f`, `3.14159` | `3.141590` |
-| `%.2f` | float con 2 decimales | `%.2f`, `3.14159` | `3.14` |
-| `%p` | dirección de memoria del puntero | `%p`, `&x` | `0xc0000140a0` |
-| `%%` | un `%` literal | `100%%` | `100%` |
-| `%w` | **solo en `fmt.Errorf`**: envuelve un error | ver abajo | — |
+| `%v` | El valor "por defecto", sirve para casi todo | `%v`, `[]int{1,2}` | `[1 2]` |
+| `%+v` | Struct **con nombres de campo** | `%+v`, `Usuario{"Ana",30}` | `{Nombre:Ana Edad:30}` |
+| `%#v` | Representación Go (para depurar) | `%#v`, `Usuario{"Ana",30}` | `main.Usuario{Nombre:"Ana", Edad:30}` |
+| `%T` | El **tipo** del valor | `%T`, `30` / `"Ana"` | `int` / `string` |
+| `%t` | Booleano | `%t`, `true` | `true` |
+| `%d` | Entero en base 10 | `%d`, `42` | `42` |
+| `%5d` | Entero, ancho mínimo 5, alineado a la derecha | `%5d`, `42` | `   42` |
+| `%-5d` | Igual, alineado a la izquierda | `%-5d`, `42` | `42   ` |
+| `%05d` | Rellena con ceros | `%05d`, `42` | `00042` |
+| `%s` | String | `%s`, `"Ana"` | `Ana` |
+| `%q` | String **entre comillas** y con escapes | `%q`, `"Ana"` | `"Ana"` |
+| `%c` | El número como carácter Unicode | `%c`, `65` | `A` |
+| `%x` | Entero en hexadecimal | `%x`, `255` | `ff` |
+| `%f` | Float | `%f`, `3.14159` | `3.141590` |
+| `%.2f` | Float con 2 decimales | `%.2f`, `3.14159` | `3.14` |
+| `%p` | Dirección de memoria del puntero | `%p`, `&x` | `0xc0000140a0` |
+| `%%` | Un `%` literal | `100%%` | `100%` |
+| `%w` | **Solo en `fmt.Errorf`**: envuelve un error | Ver abajo | — |
 
 ## `%v` en detalle (el más usado)
 
@@ -91,13 +91,13 @@ En el capítulo 04 está explicado con ejemplos.
 
 | Función | Qué hace | Agrega salto de línea |
 |---|---|---|
-| `fmt.Print(a, b)` | imprime valores tal cual | no |
-| `fmt.Println(a, b)` | imprime separando con espacios | **sí** |
-| `fmt.Printf(formato, args...)` | imprime usando verbos | no (pon `\n`) |
-| `fmt.Sprintf(...)` | devuelve un `string`, no imprime | no |
-| `fmt.Fprintf(w, ...)` | escribe en un `io.Writer` (archivo, HTTP, consola) | no |
-| `fmt.Errorf(...)` | devuelve un `error` | no |
-| `fmt.Fprintln(w, ...)` | escribe en `w` con espacios y salto | sí |
+| `fmt.Print(a, b)` | Imprime valores tal cual | No |
+| `fmt.Println(a, b)` | Imprime separando con espacios | **Sí** |
+| `fmt.Printf(formato, args...)` | Imprime usando verbos | No (pon `\n`) |
+| `fmt.Sprintf(...)` | Devuelve un `string`, no imprime | No |
+| `fmt.Fprintf(w, ...)` | Escribe en un `io.Writer` (archivo, HTTP, consola) | No |
+| `fmt.Errorf(...)` | Devuelve un `error` | No |
+| `fmt.Fprintln(w, ...)` | Escribe en `w` con espacios y salto | Sí |
 
 Regla práctica: **`Println` para personas, `Printf` cuando necesitas control del formato,
 `Sprintf` cuando el resultado se guarda o se envía, `Fprintf` cuando el destino no es la
@@ -137,10 +137,10 @@ capítulos 14 y 18 usan el estilo correcto.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `%!d(string=Ana)` | verbo de número con string | usa `%s` o `%v` |
-| `%!s(MISSING)` | faltó un argumento | agrega el valor |
-| `%!(EXTRA string=x)` | sobró un argumento | revisa el orden |
-| `%!t(int=1)` | `%t` con algo que no es bool | convierte o usa `%d` |
-| todo en una línea | `Printf` sin `\n` | agrega `\n` o usa `Println` |
+| `%!d(string=Ana)` | Verbo de número con string | Usa `%s` o `%v` |
+| `%!s(MISSING)` | Faltó un argumento | Agrega el valor |
+| `%!(EXTRA string=x)` | Sobró un argumento | Revisa el orden |
+| `%!t(int=1)` | `%t` con algo que no es bool | Convierte o usa `%d` |
+| Todo en una línea | `Printf` sin `\n` | Agrega `\n` o usa `Println` |
 
 Volver al [índice](../README.md) o a [01 — Hola mundo](../01-hola-mundo/).

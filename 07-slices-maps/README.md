@@ -320,13 +320,13 @@ go run ./07-slices-maps
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `append` no agrega nada | no reasignaste | `x = append(x, ...)` |
-| `assignment to entry in nil map` | map sin `make` | `make(map[K]V)` o literal |
-| se saltean elementos al borrar en un `range` | índices que se corren | filtrar a un slice nuevo |
-| el map cambia de orden | `range` randomiza | ordená las claves |
-| `copia[0]` cambia el original | copiaste la cabecera | `slices.Clone` |
-| `index out of range` | accedés `s[i]` con `i == len(s)` | el último índice es `len-1` |
-| comparador de `SortFunc` inconsistente | devuelve bool o no respeta el orden | -1 / 0 / 1 |
+| `append` no agrega nada | No reasignaste | `x = append(x, ...)` |
+| `assignment to entry in nil map` | Map sin `make` | `make(map[K]V)` o literal |
+| Se saltean elementos al borrar en un `range` | Índices que se corren | Filtrar a un slice nuevo |
+| El map cambia de orden | `range` randomiza | Ordená las claves |
+| `copia[0]` cambia el original | Copiaste la cabecera | `slices.Clone` |
+| `index out of range` | Accedés `s[i]` con `i == len(s)` | El último índice es `len-1` |
+| Comparador de `SortFunc` inconsistente | Devuelve bool o no respeta el orden | -1 / 0 / 1 |
 
 ## Por qué importa en el trabajo
 

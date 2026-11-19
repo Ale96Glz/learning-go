@@ -233,13 +233,13 @@ go run ./12-context
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `context deadline exceeded` inesperado | el timeout es más chico que el trabajo | subí el plazo o revisá la operación |
-| `context canceled` apenas arranca | el context padre ya estaba cancelado | revisá quién lo canceló |
-| el servidor sigue trabajando tras el corte | no propagaste el `ctx` | pasalo a la DB y al HTTP client |
-| fuga de timers/memoria | falta `defer cancel()` | agregalo siempre |
-| `ctx.Value` devuelve `nil` | clave distinta (tipo o instancia) | usá el mismo tipo no exportado |
-| `context.WithValue` para config | mal uso | inyección de dependencias |
-| dos timeouts que suman | usaste `WithTimeout` en cada paso | `WithDeadline` compartido |
+| `context deadline exceeded` inesperado | El timeout es más chico que el trabajo | Subí el plazo o revisá la operación |
+| `context canceled` apenas arranca | El context padre ya estaba cancelado | Revisá quién lo canceló |
+| El servidor sigue trabajando tras el corte | No propagaste el `ctx` | Pasalo a la DB y al HTTP client |
+| Fuga de timers/memoria | Falta `defer cancel()` | Agregalo siempre |
+| `ctx.Value` devuelve `nil` | Clave distinta (tipo o instancia) | Usá el mismo tipo no exportado |
+| `context.WithValue` para config | Mal uso | Inyección de dependencias |
+| Dos timeouts que suman | Usaste `WithTimeout` en cada paso | `WithDeadline` compartido |
 
 ## Por qué importa en el trabajo
 

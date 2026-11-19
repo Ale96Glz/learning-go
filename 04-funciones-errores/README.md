@@ -258,12 +258,12 @@ go run ./04-funciones-errores
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `errors.Is` da `false` con el mensaje correcto | usaste `%v` en vez de `%w` | envolvés con `%w` |
-| `errors.As` no llena `ve` | pasaste `ve` en vez de `&ve` | `errors.As(err, &ve)` |
-| panic al leer `u.Nombre` | `err != nil` y usaste `u` (nil) | chequeá el error primero |
-| `defer` no corre | saliste con `os.Exit` | evitá `os.Exit` fuera de `main` |
-| `cannot use ... as error` | tu tipo no tiene `Error() string` | agregá el método |
-| error sin contexto | `return err` a secas | `fmt.Errorf("abrir %s: %w", ruta, err)` |
+| `errors.Is` da `false` con el mensaje correcto | Usaste `%v` en vez de `%w` | Envolvés con `%w` |
+| `errors.As` no llena `ve` | Pasaste `ve` en vez de `&ve` | `errors.As(err, &ve)` |
+| Panic al leer `u.Nombre` | `err != nil` y usaste `u` (nil) | Chequeá el error primero |
+| `defer` no corre | Saliste con `os.Exit` | Evitá `os.Exit` fuera de `main` |
+| `cannot use ... as error` | Tu tipo no tiene `Error() string` | Agregá el método |
+| Error sin contexto | `return err` a secas | `fmt.Errorf("abrir %s: %w", ruta, err)` |
 
 ## Por qué importa en el trabajo
 

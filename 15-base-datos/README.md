@@ -330,14 +330,14 @@ DB Browser for SQLite o `sqlite3 tareas.db ".tables"`.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `unknown driver "sqlite"` | falta el import en blanco | `_ "modernc.org/sqlite"` |
-| `database is locked` | varias conexiones escribiendo | `SetMaxOpenConns(1)` |
-| `sql: database is closed` | usaste el pool después de `Close` | revisá el ciclo de vida |
-| `sql: no rows in result set` llega como 500 | no tradujiste `ErrNoRows` | devolvé `ErrNoExiste` |
-| el pool se agota | falta `rows.Close()` | `defer rows.Close()` |
-| errores a mitad de lista invisibles | falta `rows.Err()` | chequealo después del loop |
-| `UPDATE` "exitoso" con ID inexistente | no miraste `RowsAffected` | compará con 0 |
-| fechas corridas | guardaste hora local | `.UTC()` al escribir |
+| `unknown driver "sqlite"` | Falta el import en blanco | `_ "modernc.org/sqlite"` |
+| `database is locked` | Varias conexiones escribiendo | `SetMaxOpenConns(1)` |
+| `sql: database is closed` | Usaste el pool después de `Close` | Revisá el ciclo de vida |
+| `sql: no rows in result set` llega como 500 | No tradujiste `ErrNoRows` | Devolvé `ErrNoExiste` |
+| El pool se agota | Falta `rows.Close()` | `defer rows.Close()` |
+| Errores a mitad de lista invisibles | Falta `rows.Err()` | Chequealo después del loop |
+| `UPDATE` "exitoso" con ID inexistente | No miraste `RowsAffected` | Compará con 0 |
+| Fechas corridas | Guardaste hora local | `.UTC()` al escribir |
 
 ## Por qué importa en el trabajo
 

@@ -228,12 +228,12 @@ y volvé a correrlo.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `invalid character ...` sin archivo | no envolviste con `%w` | `fmt.Errorf("parsear %s: %w", ruta, err)` |
-| archivo vacío después de un corte | no usaste `Sync` | `f.Sync()` antes de `Close` |
-| `rename ...: Access is denied` en Windows | archivo abierto | `Close` antes de `Rename` |
-| `cannot unmarshal number into Go struct field` | tipo del campo no coincide | revisá el struct o el JSON |
-| el JSON sale en una línea | falta `SetIndent` | `enc.SetIndent("", "  ")` |
-| `null` en vez de `[]` | devolviste un slice nil | `return []Tarea{}, nil` |
+| `invalid character ...` sin archivo | No envolviste con `%w` | `fmt.Errorf("parsear %s: %w", ruta, err)` |
+| Archivo vacío después de un corte | No usaste `Sync` | `f.Sync()` antes de `Close` |
+| `rename ...: Access is denied` en Windows | Archivo abierto | `Close` antes de `Rename` |
+| `cannot unmarshal number into Go struct field` | Tipo del campo no coincide | Revisá el struct o el JSON |
+| El JSON sale en una línea | Falta `SetIndent` | `enc.SetIndent("", "  ")` |
+| `null` en vez de `[]` | Devolviste un slice nil | `return []Tarea{}, nil` |
 
 ## Por qué importa en el trabajo
 
